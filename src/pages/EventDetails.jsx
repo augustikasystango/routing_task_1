@@ -14,7 +14,6 @@ const EventDetails = () => {
     <div>
       EventDetails
        <EventItem  data={data}/>
-    
     </div>
   )
 }
