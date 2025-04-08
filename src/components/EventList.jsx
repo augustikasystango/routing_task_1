@@ -1,12 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const EventList = (data) => {
-  console.log("----4",data);
+const EventList = (events) => {
+ // console.log("----4",data);
   return (
     <div>
-    {  data?.data.map((item)=>(
+    { events?.events?.map((item)=>(
         <ul key={item.id}>
-            <li>{item.name }</li>
+            <Link>{item.name }</Link>
         </ul>
       ))}
     </div>

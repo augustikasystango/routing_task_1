@@ -19,18 +19,21 @@ function App() {
     children:[
       {index:true , element:<Home/>},
       {path:'events',element:<EventRoot/>,
-        // loader:async()=>{
-        //   try{
-        //     let res = await axios.get(`https://67eb8191aa794fb3222a78fb.mockapi.io/event`)
-        //     return res?.data;}
-        //     catch(error)
-        //     {
-        //       console.log(`Error0`,error)
-        //     }
-          
-        // },
+      
         children:[
-        {index:true,element:<Events/>},
+        {index:true,element:<Events/>,
+          loader:async()=>{
+            try {
+              let res = await axios.get(`https://67eb8191aa794fb3222a78fb.mockapi.io/event`);
+              // console.log(res?.data, "2345678");
+              // setData(res?.data)
+              return res?.data;
+          } catch (error) {
+              console.log("error fetching users", error);
+          }
+            
+           },
+        },
         {path:':id',element:<EventDetails/>},
         {path:':id/edit',element:<EditEvent/>},
         {path:'new' ,element:<NewEvent/>}
