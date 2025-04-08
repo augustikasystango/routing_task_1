@@ -10,6 +10,9 @@ import EventDetails from './pages/EventDetails';
 import ErrorPage from './pages/ErrorPage';
 import EventRoot from './components/EventRoot';
 import axios from 'axios';
+import {loader as eventsLoader} from './pages/Events'
+
+
 
 function App() {
    const router = createBrowserRouter([
@@ -22,17 +25,7 @@ function App() {
       
         children:[
         {index:true,element:<Events/>,
-          loader:async()=>{
-            try {
-              let res = await axios.get(`https://67eb8191aa794fb3222a78fb.mockapi.io/event`);
-              // console.log(res?.data, "2345678");
-              // setData(res?.data)
-              return res?.data;
-          } catch (error) {
-              console.log("error fetching users", error);
-          }
-            
-           },
+          loader:eventsLoader,
         },
         {path:':id',element:<EventDetails/>},
         {path:':id/edit',element:<EditEvent/>},
