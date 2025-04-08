@@ -9,7 +9,7 @@ const EventList = (events) => {
     <div>
     { events?.events?.map((item)=>(
         <ul key={item.id}>
-            <Link>{item.name }</Link>
+            <Link to={item.id}>{item.name }</Link>
         </ul>
       ))}
     </div>

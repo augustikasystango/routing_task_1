@@ -10,7 +10,8 @@ import EventDetails from './pages/EventDetails';
 import ErrorPage from './pages/ErrorPage';
 import EventRoot from './components/EventRoot';
 import axios from 'axios';
-import {loader as eventsLoader} from './pages/Events'
+import {loader as eventsLoader} from './pages/Events';
+import {loader as eventsDetailLoader} from './pages/EventDetails';
 
 
 
@@ -27,7 +28,9 @@ function App() {
         {index:true,element:<Events/>,
           loader:eventsLoader,
         },
-        {path:':id',element:<EventDetails/>},
+        {path:':id',element:<EventDetails/>,
+          loader: eventsDetailLoader
+        },
         {path:':id/edit',element:<EditEvent/>},
         {path:'new' ,element:<NewEvent/>}
       ]}
