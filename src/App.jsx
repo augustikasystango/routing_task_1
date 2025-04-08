@@ -10,38 +10,52 @@ import EventDetails from './pages/EventDetails';
 import ErrorPage from './pages/ErrorPage';
 import EventRoot from './components/EventRoot';
 import axios from 'axios';
-import {loader as eventsLoader} from './pages/Events';
-import {loader as eventsDetailLoader} from './pages/EventDetails';
+import { loader as eventsLoader } from './pages/Events';
+import { loader as eventsDetailLoader } from './pages/EventDetails';
 
 
 
 function App() {
-   const router = createBrowserRouter([
-   { path:"/",
-    element:<MainNavigation/>,
-    errorElement:<ErrorPage/>,
-    children:[
-      {index:true , element:<Home/>},
-      {path:'events',element:<EventRoot/>,
-      
-        children:[
-        {index:true,element:<Events/>,
-          loader:eventsLoader,
-        },
-        {path:':id',element:<EventDetails/>,
-          loader: eventsDetailLoader
-        },
-        {path:':id/edit',element:<EditEvent/>},
-        {path:'new' ,element:<NewEvent/>}
-      ]}
-     
-    ]
-   }
-   ])
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <MainNavigation />,
+      errorElement: <ErrorPage />,
+      children: [
+        { index: true, element: <Home /> },
+        {
+          path: 'events', element: <EventRoot />,
+
+          children: [
+            {
+              index: true, element: <Events />,
+              loader: eventsLoader,
+            },
+
+            {
+              path: ':id',
+              id:'event-detail',
+              loader: eventsDetailLoader,
+              children: [
+                {
+                  index: true, element: <EventDetails />,
+                },
+                { path: 'edit', element: <EditEvent /> },
+              ]
+
+            },
+
+            { path: 'new', element: <NewEvent /> }
+          ]
+        }
+
+      ]
+    }
+  ])
 
   return (
     <>
-      <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </>
   )
 }

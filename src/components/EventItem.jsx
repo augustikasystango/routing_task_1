@@ -1,22 +1,26 @@
 import React from 'react'
+import { Link,useLoaderData ,useRouteLoaderData } from 'react-router-dom';
 
-const EventItem = (data) => {
-    console.log("---event item data");
-    console.log(data?.data,"EventItem");
-    const result = data?.data;
-    console.log(Array.isArray(result),"event_details 1234567")
+const EventItem = () => {
+    const data = useRouteLoaderData('event-detail');
+    console.log(data,"12345678")
+   
+    //console.log(data?.data?.data,"EventItem");
+    //const result = data?.data;
+    //console.log(Array.isArray(result),"event_details 1234567")
   return (
     <div>
         <p>Event Item</p>
-        <div>{result?.data?.data?.name}</div>
+        <div>{data?.name}</div>
    
         <div>
-            <li>{data?.data.event_details}</li>
+            <li>{data.event_details}</li>
          <li>
-             {data?.data.name}
+             {data?.name}
          </li>
-         <li>{data?.data.date}</li>
+         <li>{data?.date}</li>
      </div>
+     {/* <Link to={}></Link> */}
     </div>
   )
 }
