@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link ,useLoaderData} from 'react-router-dom';
 
-const EventList = (events) => {
- // console.log("----4",data);
+const EventList = () => {
+
+  const events = useLoaderData();
+ console.log("----4",events);
   return (
     <div>
-    { events?.events?.map((item)=>(
+    { events?.map((item)=>(
         <ul key={item.id}>
             <Link>{item.name }</Link>
         </ul>

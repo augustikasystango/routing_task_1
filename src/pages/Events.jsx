@@ -6,14 +6,14 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 const Events = () => {
-
-const events = useLoaderData();
-console.log(events);
+//we can also use loaderdata inside EVentlist to avoid sending props to eventlist through event
+// const events = useLoaderData();
+//console.log(events);
 
 
     return (
         <>
-        <EventList events={events} />
+        <EventList  />
       </>
     )
 }
