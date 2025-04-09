@@ -35,7 +35,7 @@ const EventItem = () => {
      <menu>
       <button onClick={startDeleteHandler}>{isDeleting?"Delete":"Deleting"}</button>
      </menu>
-     {/* <Link to={}></Link> */}
+     
     </div>
   )
 }
