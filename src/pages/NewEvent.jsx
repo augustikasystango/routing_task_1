@@ -33,35 +33,36 @@ export async function action({request}){
   {
     errors.event = "ENter event name"
   }
-  if(!event_details || event_details.length<20)
+  if(!event_details || event_details.length<10)
   {
-    errors.event_details = "Enter event details , more than 20 characters"
+    errors.event_details = "Enter event details , more than 10 characters"
   }
 
   if(Object.keys(errors).length > 0)
   {
-    return {errors};
+    return { errors };
   }
 
 
   
   try{
-    const data = await request.formData();
+    //const data = await request.formData();
     const eventData = {
       // name:data.get('name'),
       // event:data.get('event'),
       // date : data.get('date'),
-      // event_details:data.get('event_details')
+      //event_details:data.get('event_details')
       name,event,date,event_details
     }
 
     const res = await axios.post(`https://67eb8191aa794fb3222a78fb.mockapi.io/event`,
      eventData
     );
-    if(res.status===201){
+    console.log(res);
+    if(res.status===201 || res.status===200){
       return redirect('/events')   
     }else{
-      return redirect ({errors:{form:`Something went wrong .Please try again !`}})
+      return  ({errors:{form:`Something went wrong .Please try again !`}})
     }
   }catch(error){
         console.log(error,"Error submitting form data")
