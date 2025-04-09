@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link,useLoaderData ,useNavigation,useRouteLoaderData ,useSubmit} from 'react-router-dom';
+import { Link,NavLink,useLoaderData ,useNavigation,useRouteLoaderData ,useSubmit} from 'react-router-dom';
 
 
 const EventItem = () => {
@@ -9,9 +9,6 @@ const EventItem = () => {
    const navigation  = useNavigation();
    const isDeleting = navigation.state="Deleting";
 
-    //console.log(data?.data?.data,"EventItem");
-    //const result = data?.data;
-    //console.log(Array.isArray(result),"event_details 1234567")
      const startDeleteHandler=()=>{
       const proceed = window.confirm("Are you sure ?");
       if(proceed)
@@ -33,6 +30,7 @@ const EventItem = () => {
          <li>{data?.date}</li>
      </div>
      <menu>
+      <NavLink to="edit">Edit</NavLink>
       <button onClick={startDeleteHandler}>{isDeleting?"Delete":"Deleting"}</button>
      </menu>
      

@@ -12,7 +12,7 @@ import EventRoot from './components/EventRoot';
 import axios from 'axios';
 import { loader as eventsLoader } from './pages/Events';
 import { loader as eventsDetailLoader } from './pages/EventDetails';
-import {action as newEventAction } from './pages/NewEvent'
+import {action as manipulateEventAction } from './components/EventForm'
 import { action as deleteEventAction } from './pages/EventDetails';
 
 
@@ -41,12 +41,12 @@ function App() {
                 {
                   index: true, element: <EventDetails />,action:deleteEventAction
                 },
-                { path: 'edit', element: <EditEvent /> },
+                { path: 'edit', element: <EditEvent /> ,action:manipulateEventAction},
               ]
 
             },
 
-            { path: 'new', element: <NewEvent />,action:newEventAction }
+            { path: 'new', element: <NewEvent />,action:manipulateEventAction }
           ]
         }
 
