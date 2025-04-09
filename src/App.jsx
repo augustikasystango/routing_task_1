@@ -12,7 +12,7 @@ import EventRoot from './components/EventRoot';
 import axios from 'axios';
 import { loader as eventsLoader } from './pages/Events';
 import { loader as eventsDetailLoader } from './pages/EventDetails';
-
+import {action as newEventAction } from './pages/NewEvent'
 
 
 function App() {
@@ -45,7 +45,7 @@ function App() {
 
             },
 
-            { path: 'new', element: <NewEvent /> }
+            { path: 'new', element: <NewEvent />,action:newEventAction }
           ]
         }
 

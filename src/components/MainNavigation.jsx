@@ -13,7 +13,7 @@ const MainNavigation = () => {
             <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')} end>  Home </NavLink>
            
             <NavLink to="/events">Events</NavLink>
-        
+          <NavLink to="/events/new">New Event</NavLink>
             
         </div>
         { navigation.state ==='loading' &&  <p>Loading....</p>}
