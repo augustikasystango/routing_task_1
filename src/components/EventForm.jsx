@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Form } from 'react-router-dom';
 
 const EventForm = ({method,event}) => {
-console.log(event,"---6 ");
+
 
   return (
     <div>

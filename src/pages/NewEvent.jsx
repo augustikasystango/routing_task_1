@@ -1,7 +1,7 @@
 import React from 'react'
 import EventForm from '../components/EventForm';
 import axios from 'axios';
-
+import { redirect } from 'react-router-dom';
 const NewEvent = () => {
   return (
     <div>
@@ -31,4 +31,5 @@ export async function action({request}){
   }catch(error){
         console.log(error,"Error submitting form data")
   }
+  return redirect('/events')
 }
