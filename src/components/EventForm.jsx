@@ -68,36 +68,6 @@ export async function action({ request, params }) {
   }
 
 
-  //action for post /creating users
-  // try {
-    
-  //   const eventData = {
-     
-  //     name, event, date, event_details
-  //   }
-  //   console.log(eventData);
-  //   if (method === 'POST') {
-  //     let res = await axios.post(`https://67eb8191aa794fb3222a78fb.mockapi.io/event`,
-  //       eventData
-  //     );
-  //     console.log(res,"0000");
-  //     if (res.status === 201 || res.status === 200) {
-  //       return redirect('/events')
-  //     }
-  //     else {
-  //       return ({ errors: { form: `Something went wrong .Please try again !` } })
-  //     }
-  //   }
-  //   else if (method === 'PATCH') {
-  //     const id = params.id;
-  //     let res = await axios.put(`https://67eb8191aa794fb3222a78fb.mockapi.io/event/${id}`,eventData)
-  //       console.log(eventData);
-  //     console.log(res?.data);
-
-  //   }
-  // } catch (error) {
-  //   console.log(error, "Error submitting form data")
-  // }
 
 
   try {

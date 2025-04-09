@@ -9,7 +9,7 @@ const EditEvent = () => {
     <div>
       EditEvent
       
-      <EventForm method="PATCH" event={data.event}/>
+      <EventForm method="PATCH" event={data}/>
     </div>
   )
 }
