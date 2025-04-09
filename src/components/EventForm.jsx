@@ -1,9 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
-import { Form } from 'react-router-dom';
+import { Form ,useNavigation} from 'react-router-dom';
 
 const EventForm = ({method,event}) => {
+ const navigation = useNavigation();
 
+ const isSubmitting = navigation.state==='submitting';
 
   return (
     <div>
@@ -14,7 +16,7 @@ const EventForm = ({method,event}) => {
         <input placeholder='Enter date of event' name='date' type='date' required defaultValue={event?event.date:""}/>
         <input placeholder='Enter event details' name='event_details' type='text' required defaultValue={event?event.event_details:""}  />
         <input placeholder='Enter type of event' name='event' type='text' required defaultValue={event?event.event:""} />
-        <button type='submit'>Save</button>
+        <button type='submit' disabled={isSubmitting}>{isSubmitting ? 'Submitting':'Save'}</button>
       </Form>
       
     </div>

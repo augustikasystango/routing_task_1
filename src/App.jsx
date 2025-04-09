@@ -13,6 +13,7 @@ import axios from 'axios';
 import { loader as eventsLoader } from './pages/Events';
 import { loader as eventsDetailLoader } from './pages/EventDetails';
 import {action as newEventAction } from './pages/NewEvent'
+import { action as deleteEventAction } from './pages/EventDetails';
 
 
 function App() {
@@ -38,7 +39,7 @@ function App() {
               loader: eventsDetailLoader,
               children: [
                 {
-                  index: true, element: <EventDetails />,
+                  index: true, element: <EventDetails />,action:deleteEventAction
                 },
                 { path: 'edit', element: <EditEvent /> },
               ]

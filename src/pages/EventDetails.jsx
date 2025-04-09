@@ -1,5 +1,5 @@
 import React from 'react'
-import { useRouteLoaderData, useParams } from 'react-router-dom'
+import { useRouteLoaderData, useParams, redirect } from 'react-router-dom'
 import EventItem from '../components/EventItem';
 import axios from 'axios';
 
@@ -34,4 +34,21 @@ export const loader=async({params})=>{
   {
     console.log("Error",error);
   }
+}
+
+export async function action({params,request}){
+
+  try{
+    const id = params.id;
+    const res = await axios.delete(`https://67eb8191aa794fb3222a78fb.mockapi.io/event/${id}`,{
+      method:request.method
+    });
+
+
+  }catch(error)
+  {
+    console.log(`Cannot delete user`,error);
+  }
+  return redirect('/events');
+
 }
